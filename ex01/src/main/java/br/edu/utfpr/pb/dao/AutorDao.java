@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.dao;
 
 import br.edu.utfpr.pb.model.Autor;

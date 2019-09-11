@@ -70,7 +70,7 @@ public class LivroDao {
     
     //Retornar os Livros pesquisando por parte do nome do autor e ordenando por ano.
     public List<Livro> findByAutorLike(String autor){
-        Query query = em.createQuery("select l from Livro l where l.autor.autor like :autor");
+        Query query = em.createQuery("select l from Livro l where l.autor.autor like :autor order by l.ano");
         
         query.setParameter("autor", "%" + autor + "%");
         

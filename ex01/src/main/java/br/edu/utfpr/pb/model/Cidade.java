@@ -21,12 +21,12 @@ public class Cidade {
     private String cidade;
     
     @Column(name = "ibge", nullable = false)
-    private Long ibge;
+    private String ibge;
 
     public Cidade() {
     }
    
-    public Cidade(Long id, String cidade, Long ibge) {
+    public Cidade(Long id, String cidade, String ibge) {
         this.id = id;
         this.cidade = cidade;
         this.ibge = ibge;
@@ -48,11 +48,11 @@ public class Cidade {
         this.cidade = cidade;
     }
 
-    public Long getIbge() {
+    public String getIbge() {
         return ibge;
     }
 
-    public void setIbge(Long ibge) {
+    public void setIbge(String ibge) {
         this.ibge = ibge;
     }
 
