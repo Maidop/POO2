@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 import br.edu.utfpr.pb.aula2.converter.BooleanConverter;
@@ -17,7 +16,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,27 +27,25 @@ public class Usuario {
     @Column(length = 100, nullable = false)
     private String email;
     
-    @Column(length = 100, nullable = false)
+    @Column(length = 512, nullable = false)
     private String senha;
     
     @Convert(converter = BooleanConverter.class)
-    @Column(nullable = false, columnDefinition = "char{1} default 'V'")
+    @Column(nullable = false, columnDefinition = "char(1) default 'V'")
     private Boolean ativo;
-            
-    @Column(name = "data_nascimanto", nullable = false)
+    
+    @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
     
     //mapeamento das permissões
-    
     @ManyToMany
     @JoinTable(name = "usuario_permissao", 
-        joinColumns = {
-            @JoinColumn(name = "usuario_id", nullable = false, updatable = false)
-    }, 
-        inverseJoinColumns = {
-            @JoinColumn(name = "permissao_id", nullable = false, updatable = false)
-        }
-    )
+            joinColumns = {
+                @JoinColumn( name = "usuario_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                @JoinColumn( name = "permissao_id", nullable = false, updatable = false)
+            })
     private List<Permissao> permissoes;
 
     public Usuario() {
@@ -113,7 +110,7 @@ public class Usuario {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 67 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -134,7 +131,6 @@ public class Usuario {
         }
         return true;
     }
-    
-    
+
     
 }

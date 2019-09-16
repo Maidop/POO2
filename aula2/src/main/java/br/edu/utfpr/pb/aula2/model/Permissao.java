@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 import java.util.Objects;
@@ -10,6 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Permissao {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,14 +37,9 @@ public class Permissao {
     }
 
     @Override
-    public String toString() {
-        return "Permissao{" + "id=" + id + ", nome=" + nome + '}';
-    }
-
-    @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.id);
         return hash;
     }
 

@@ -48,6 +48,4 @@ public class Categoria {
         return "Categoria{" + "id=" + id + ", descricao=" + descricao + '}';
     }
     
-    
-    
 }

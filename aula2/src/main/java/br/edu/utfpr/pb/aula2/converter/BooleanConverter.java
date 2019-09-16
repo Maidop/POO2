@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.converter;
 
 import javax.persistence.AttributeConverter;
