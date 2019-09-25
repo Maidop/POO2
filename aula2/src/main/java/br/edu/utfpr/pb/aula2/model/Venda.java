@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 import java.time.LocalDate;
@@ -18,7 +17,7 @@ import javax.persistence.Transient;
 
 @Entity
 public class Venda {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,20 +28,21 @@ public class Venda {
     @ManyToOne
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Cliente cliente;
-    
-    @OneToMany(mappedBy = "venda", fetch = FetchType.EAGER, cascade = CascadeType.ALL)   //  qual valor de vendaProduto faz referencia com Venda
+
+    @OneToMany(mappedBy = "venda", fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<VendaProduto> vendaProdutos;
     
     @Transient
     private Double valorTotal;
-
+    
     public Venda() {
     }
     
-    public Double getValorTotal(){
+    public Double getValorTotal() {
         return vendaProdutos.stream().mapToDouble(
-                vp -> vp.getQuantidade() * vp.getValor()
-        ).sum();
+                  vp -> vp.getQuantidade() * vp.getValor()
+               ).sum();
     }
 
     public Long getId() {
@@ -77,12 +77,10 @@ public class Venda {
         this.vendaProdutos = vendaProdutos;
     }
     
-    
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -103,7 +101,5 @@ public class Venda {
         }
         return true;
     }
-    
-    
     
 }

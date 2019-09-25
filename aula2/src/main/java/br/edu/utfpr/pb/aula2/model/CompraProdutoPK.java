@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 import java.io.Serializable;
@@ -9,7 +8,7 @@ import javax.persistence.ManyToOne;
 
 @Embeddable
 public class CompraProdutoPK implements Serializable{
-    
+
     @ManyToOne
     @JoinColumn(name = "compra_id", referencedColumnName = "id")
     private Compra compra;
@@ -44,9 +43,9 @@ public class CompraProdutoPK implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.compra);
-        hash = 97 * hash + Objects.hashCode(this.produto);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.compra);
+        hash = 47 * hash + Objects.hashCode(this.produto);
         return hash;
     }
 

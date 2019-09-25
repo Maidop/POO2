@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.pb.aula2.model;
 
 import java.time.LocalDate;
@@ -19,6 +14,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Compra {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +22,8 @@ public class Compra {
     @Column(nullable = false)
     private LocalDate date;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id.compra")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,
+            mappedBy = "id.compra")
     private List<CompraProduto> compraProdutos;
 
     public Compra() {
@@ -58,8 +55,8 @@ public class Compra {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
         return hash;
     }
 

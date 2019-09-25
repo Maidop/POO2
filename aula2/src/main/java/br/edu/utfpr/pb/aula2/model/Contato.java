@@ -15,24 +15,24 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Contato {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(length = 20, nullable = false)
     private String telefone;
-    
-    //@Enumerated(EnumType.STRING)
+
+    // @Enumerated(EnumType.STRING)
     @Convert(converter = TipoContatoConverter.class)
     @Column(nullable = false)
     private ETipoContato tipoContato;
-    
-    //@Enumerated(EnumType.ORDINAL)
+
+    // @Enumerated(EnumType.ORDINAL)
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EOperadora operadora;
-    
+
     @ManyToOne()
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Cliente cliente;
@@ -82,8 +82,8 @@ public class Contato {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -104,8 +104,6 @@ public class Contato {
         }
         return true;
     }
-    
-    
-    
+
     
 }

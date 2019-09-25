@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 public enum ETipoContato {
@@ -12,14 +11,14 @@ public enum ETipoContato {
         this.id = id;
     }
     
-    public Integer getId(){
+    public Integer getId() {
         return this.id;
     }
     
-    public static ETipoContato findById(Integer id){
-        for(ETipoContato tipoContato : ETipoContato.values()){
-            if(tipoContato.getId().equals(id)) return tipoContato;
+    public static ETipoContato findById(Integer id) {
+        for (ETipoContato tipoContato : ETipoContato.values()) {
+            if (tipoContato.getId().equals(id)) return tipoContato;
         }
-        throw new IllegalArgumentException("Tipo Contato Invélido!");
+        throw new IllegalArgumentException("Tipo Contato inválido!");
     }
 }

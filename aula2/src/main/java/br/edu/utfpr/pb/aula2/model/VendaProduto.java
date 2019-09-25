@@ -1,4 +1,3 @@
-
 package br.edu.utfpr.pb.aula2.model;
 
 import java.util.Objects;
@@ -12,8 +11,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class VendaProduto {
-    
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,9 +25,9 @@ public class VendaProduto {
     @ManyToOne
     @JoinColumn(name = "produto_id", referencedColumnName = "id")
     private Produto produto;
-    
+
     @ManyToOne
-    @JoinColumn(name = "venda_id", referencedColumnName = "id")
+    @JoinColumn(name = "venda_id", referencedColumnName = "id")    
     private Venda venda;
 
     public VendaProduto() {
@@ -99,7 +97,6 @@ public class VendaProduto {
         }
         return true;
     }
-    
     
     
 }

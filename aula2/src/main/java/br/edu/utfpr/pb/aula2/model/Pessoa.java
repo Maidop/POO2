@@ -1,33 +1,34 @@
 package br.edu.utfpr.pb.aula2.model;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-public class Cliente {
+// @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // única tabela com um campo discriminando cada objeto
+// @DiscriminatorColumn(name = "tipo")
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
+// @Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Pessoa implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(length = 254, nullable = false)
+    @Column(length = 250, nullable = false)
     private String nome;
-    
-    @Column(length = 11, nullable = false)
-    private String cpf;
-    
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private List<Contato> contatos;
 
-    public Cliente() {
+    public Pessoa() {
     }
 
     public Long getId() {
@@ -46,26 +47,10 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public List<Contato> getContatos() {
-        return contatos;
-    }
-
-    public void setContatos(List<Contato> contatos) {
-        this.contatos = contatos;
-    }
-    
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 31 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -80,12 +65,12 @@ public class Cliente {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cliente other = (Cliente) obj;
+        final Pessoa other = (Pessoa) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-
+    
     
 }
