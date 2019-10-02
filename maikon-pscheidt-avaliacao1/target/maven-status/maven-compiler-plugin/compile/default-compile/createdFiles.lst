@@ -1,0 +1,5 @@
+br\edu\utfpr\pb\maikon\pscheidt\avaliacao1\dao\GenericDao.class
+br\edu\utfpr\pb\maikon\pscheidt\avaliacao1\dao\TesteDao.class
+br\edu\utfpr\pb\maikon\pscheidt\avaliacao1\util\EntityManagerUtil.class
+br\edu\utfpr\pb\maikon\pscheidt\avaliacao1\main\Main.class
+br\edu\utfpr\pb\maikon\pscheidt\avaliacao1\model\Teste.class
