@@ -1,6 +1,6 @@
-package br.edu.utfpr.pb.aula2.dao;
+package br.edu.utfpr.pb.oo24s.aula4.dao;
 
-import br.edu.utfpr.pb.aula2.model.Usuario;
+import br.edu.utfpr.pb.oo24s.aula4.model.Usuario;
 import java.util.List;
 import javax.persistence.Query;
 

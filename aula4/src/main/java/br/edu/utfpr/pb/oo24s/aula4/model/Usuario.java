@@ -1,6 +1,6 @@
-package br.edu.utfpr.pb.aula2.model;
+package br.edu.utfpr.pb.oo24s.aula4.model;
 
-import br.edu.utfpr.pb.aula2.converter.BooleanConverter;
+import br.edu.utfpr.pb.oo24s.aula4.converter.BooleanConverter;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;

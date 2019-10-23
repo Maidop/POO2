@@ -1,4 +1,4 @@
-package br.edu.utfpr.pb.aula2.model;
+package br.edu.utfpr.pb.oo24s.aula4.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
